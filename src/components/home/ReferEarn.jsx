@@ -133,7 +133,7 @@ const ReferEarn = ({ onDialogOpen, onDialogClose }) => {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle style={{ textAlign: 'center' }}>Refer a Friend</DialogTitle>
                 <DialogContent style={{ padding: '20px' }}>
-                    <Typography variant="body2" color="white">
+                    <Typography variant="body2" color="error">
                         * Represents compulsory fields
                     </Typography>
                     <FormField
@@ -180,23 +180,22 @@ const ReferEarn = ({ onDialogOpen, onDialogClose }) => {
                         error={formData.refereeEmailError}
                         helperText={formData.refereeEmailError ? 'Please enter a valid email' : ''}
                     />
+                    <Snackbar
+                        open={snackbarOpen}
+                        autoHideDuration={6000}
+                        onClose={handleSnackbarClose}
+                        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    >
+                        <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
+                            {snackbarMessage}
+                        </Alert>
+                    </Snackbar>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="secondary">Cancel</Button>
                     <Button onClick={handleSubmit} color="primary">Submit</Button>
                 </DialogActions>
             </Dialog>
-
-            <Snackbar
-                open={snackbarOpen}
-                autoHideDuration={6000}
-                onClose={handleSnackbarClose}
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-            >
-                <Alert onClose={handleSnackbarClose} severity={snackbarSeverity} sx={{ width: '100%' }}>
-                    {snackbarMessage}
-                </Alert>
-            </Snackbar>
         </Container>
     );
 };
