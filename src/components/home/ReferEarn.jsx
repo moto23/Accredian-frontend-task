@@ -94,7 +94,7 @@ const ReferEarn = ({ onDialogOpen, onDialogClose }) => {
         }
 
         try {
-            const response = await axios.post('https://accredian-backend-task-kvfn.onrender.com/api/referral', formData);
+            const response = await axios.post('https://accredian-backend-task-omex.vercel.app/api/referral', formData);
             console.log('Referral saved:', response.data);
             setSnackbarMessage('Referral sent successfully');
             setSnackbarSeverity('success');
